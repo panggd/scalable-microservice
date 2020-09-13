@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: postgres-replica
+  name: database-replica
 spec:
   updateStrategy:
     type: RollingUpdate
@@ -53,7 +53,7 @@ spec:
               subPath: postgres-db
 
       containers:
-        - name: postgres-replica
+        - name: database-replica
           image: postgres:latest
           args: ['-c', 'config_file=/etc/postgres.conf']
 
